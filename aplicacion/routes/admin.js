@@ -12,7 +12,7 @@ router.post('/deleteUser',function(req, res, next) {
    //si logeas como admin, puedes borrar el usuario recibido que esta en body  
         if(req.session.user.role == 'admin'){
             delete database.users.data[req.body.username];
-            res.redirect("/admin");
+            res.redirect("/admin"); //  volver a cargar ventana 
           } else {
             req.session.error = "Unauthorized access";
             res.redirect("/");

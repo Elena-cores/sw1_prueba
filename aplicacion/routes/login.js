@@ -11,7 +11,10 @@ router.post('/', async function(req, res, next){
     const username = req.body.user;
     if(await database.users.isLoginRight(username, req.body.pass)){
         req.session.user = database.users.data[username];
-        req.session.user.last_login = new Date().toISOString();
+        //ONE WAY: para actualizar la bd
+        //database.users.data[username].last_login = new Date().toISOString();
+        req.session.user.last_login = new Date().toISOString(); // another way
+        console.log(req.session.user.last_login); // check que funciona
         req.session.message = "Welcome!";
         res.redirect("/restricted");
     } else {

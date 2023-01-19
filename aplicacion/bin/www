@@ -12,7 +12,7 @@ const database = require('../database');
 /**
  * Get port from environment and store in Express.
  */
-let port= normalizePort("3200");
+let port= normalizePort("3000");
 if(process.env.PORT){
   port = normalizePort(process.env.PORT); 
 }
